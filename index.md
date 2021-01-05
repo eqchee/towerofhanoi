@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+# Cyclic Tower of Hanoi
 
-You can use the [editor on GitHub](https://github.com/eqchee/towerofhanoi/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## About The Project
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+In this variant of cyclic Tower of Hanoi, there are n disks distributed over 3 pegs, with disk size decreasing from bottom to top. This algorithm has been designed to compute the least moves needed so that all the disks are stacked on a single peg based on the following observations. 
 
-```markdown
-Syntax highlighted code block
+- For the least number of moves:
+  - The largest disk should not be moved. This means that all disks will eventually be stacked on the peg containing the largest disk, which will be known as the final peg.  
+  - The 2nd largest disk would need to move in a direction which results in the least number of moves to move to the final peg. 
+- Alternate size disks must move in opposite directions. If the 2nd largest disk needs to be moved in the clockwise direction, so must the 4th, 6th, etc largest disk, while the 3rd, 5th, etc largest disk would move in the counterclockwise direction 
+- Sum up the number of moves required for each disk, starting from the 2nd largest disk to the smallest disk. 
 
-# Header 1
-## Header 2
-### Header 3
+- If the total number of moves needed is odd, the first disk to move must be the smallest disk. 
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Time Complexity
 
-[Link](url) and ![Image](src)
-```
+At worst case, the recursive function totalmoves() would have n-1 operations where n represents the number of disks and 
+for each operation, it calls the function move() where there would be n operations to locate the disks. Thus, the total number of operations for totalmoves() would be n(n-1) = n^2 - n. As such, the time complexity of the algorithm would be O(n^2).
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eqchee/towerofhanoi/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
